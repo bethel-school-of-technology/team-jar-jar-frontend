@@ -1,23 +1,40 @@
-import React from "react";
-import { useEffect, useState } from "react";
 import axios from "axios";
+import React from "react"; 
+import { useState } from "react";
+import { withRouter } from "react-router";
 
-const Login = () => {
-    
-    const [login,setLogin] = useState();
+const Login = ({history}) => {
 
-    useEffect(() => {
-        axios.get('http://localhost:3000/Login').then(result => {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
 
-            setLogin(result.data);
-        });
-    }, []);
+    const signIn = (e) => {
+        e.preventDefault();
+        if (username !== '' && password !== '') {
+            const req = {
+                username: username,
+                password: password
+            };
+            axios.post('http://localhost:3000/users/login', req).then(result => {
+                const token = result.data.jwt;
+                localStorage.setItem('myJWT', token);
+                history.push('/');
+            })
+        }
+    };
 
-    
-    
-        return(
+           return(
             <div>
-                    <h1>test</h1>
+               <form onSubmit={ signIn }>
+                   <h1>Sign In</h1>
+                   <label>UserName</label>
+                   <input type="text" name="username" onChange={e => setUsername(e.target.value)}/>
+                   <label>Password</label>
+                   <input type="text" name="password" onChange={e => setPassword(e.target.value)}/>
+                   <button>Sign In</button>
+               </form>
+           
+                    
             </div>
         );
       
@@ -26,4 +43,4 @@ const Login = () => {
 
 
 
-export default Login;
+export default withRouter(Login);
