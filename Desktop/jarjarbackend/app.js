@@ -3,6 +3,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var models = require('./models');
+var auth = require('./services/auth');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -20,6 +21,18 @@ models.sequelize.sync({ alter:true }).then(function () {
     console.log("Mesa sync'd up wit da DADABAAAASE")
 });
 
+
+app.use(async (req, res, next) => {
+    const header = req.headers.authorization;
+    if (!header){
+        return next();
+    }
+    const token = header.split(' ')[1];
+
+    const user = await auth.verifyUser(token);
+    req.user = user;
+    next();
+});
 app.use('/users', usersRouter);
 app.use('/sabers', sabersRouter);
 

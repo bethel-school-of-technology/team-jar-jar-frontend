@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     password: {
     type: DataTypes.STRING,
     allowNull: false
-    }
+    } // ADD BOOLEAN FOR LIGHTSABER, IF USER HAS LIGHTSABER = TRUE... ETC.
   }, {
     sequelize,
     modelName: 'User',

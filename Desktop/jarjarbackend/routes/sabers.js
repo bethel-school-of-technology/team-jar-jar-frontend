@@ -27,18 +27,33 @@ router.get('/:id', (req, res, next) => {
             res.status(500).send(err);
         })
 });
+// post create saber
+router.post('/', async (req, res, next) => {
+    const header = req.headers.authorization;
 
-router.post('/', (req, res, next) => {
+    if (!header){
+        res.status(403).send();
+        return;
+    }
+    const token =header.split(' ')[1]
+    if (!user){
+        res.status(403).send();
+        return;
+    }
+
+    // create the saber with authorization id
     Sabers.create({
-        name: req.body.url,
-        url: req.body.url
+        name: req.body.name,
+        // url: req.body.url, //if  lightsaber exists or is crated
+        UserId: user.id
     }).then(newSaber =>{
         res.json(newSaber);
     }).catch(() => {
-        res.status(500);
+        res.status(400).send();
     });
 });
 
+// save saber
 router.put('/:id', (req, res, next) => {
     const sabersId = parseInt(req.params.id);
 
@@ -46,27 +61,15 @@ router.put('/:id', (req, res, next) => {
         res.status(400).send('Invalid ID');
         return;
     }
+    const user = req.user;
     Sabers.update({
-        name: req.body.name
+        name: req.body.name,
+        url: req.body.url
     }, {
-        where:{
+        where: {
             id: sabersId
         }
-    }).then(() => {
-        res.status(204).send()
-    }).catch(() =>
-    {
-        res.status(400)
     })
-});
-
-router.put('/:id', (req, res, next) => {
-    const sabersId = parseInt(req.params.id);
-
-    if (!sabersId || sabersId<=0) {
-        res.status(400).send('Invalid ID');
-        return;
-    }
     Sabers.destroy({
         where: {
             id: sabersId
