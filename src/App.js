@@ -11,7 +11,21 @@ import Login from './components/Login'
 function App() {
   return (
     <div className="App">
-      <Login/>
+      <Router>
+      <div>
+      <Link to="/Login">Login</Link>
+
+      </div>
+
+      <Switch>
+      <Route path="/Login">
+            <Login />
+          </Route>
+      </Switch>
+    </Router> 
+    {/* **** this is for the nav setup with sean **** */}
+   
+      
     </div>
   );
 }
