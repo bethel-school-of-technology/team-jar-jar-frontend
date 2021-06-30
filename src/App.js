@@ -23,7 +23,6 @@ function App() {
           </Route>
       </Switch>
     </Router> 
-    {/* **** this is for the nav setup with sean **** */}
    
       
     </div>

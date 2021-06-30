@@ -1,6 +1,6 @@
 .loginForm {
     background-color: clear;
-    color: transparent;
+    color: black;
     font-family: 'Pathway Gothic One', sans-serif;
     font-size: 200%;
     text-align: center;
@@ -12,6 +12,9 @@
     box-shadow:1px 1px 1px 1px #f8d95c;
     border-radius: 1em;
    
+}
+.background{
+    background-color: transparent;
 }
 
 h1{
