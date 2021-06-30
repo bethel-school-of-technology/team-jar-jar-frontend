@@ -6,17 +6,17 @@ import '../components/Login.css';
 
 const Login = ({history}) => {
 
-    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const signIn = (e) => {
         e.preventDefault();
-        if (username !== '' && password !== '') {
+        if (email !== '' && password !== '') {
             const req = {
-                username: username,
+                email: email,
                 password: password
             };
-            axios.post('http://localhost:3000/users/login', req).then(result => {
+            axios.post('http://localhost:3000/login', req).then(result => {
                 const token = result.data.jwt;
                 localStorage.setItem('myJWT', token);
                 history.push('/');
@@ -29,8 +29,8 @@ const Login = ({history}) => {
             
                <form class="loginForm" onSubmit={ signIn }>
                    <h1>Sign In</h1>
-                   <label class="formLabels">UserName</label><br/>
-                   <input type="text" name="username" onChange={e => setUsername(e.target.value)} class="formInputs"/><br/><br/>
+                   <label class="formLabels">Email</label><br/>
+                   <input type="text" name="email" onChange={e => setEmail(e.target.value)} class="formInputs"/><br/><br/>
                    <label  class="formLabels">Password</label><br/>
                    <input type="text" name="password" onChange={e => setPassword(e.target.value)} class="formInputs"/><br/><br/>
                    <button class="formButton">Sign In</button>
