@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react"; 
 import { useState } from "react";
 import { withRouter } from "react-router";
+import '../components/Login.css';
 
 const Login = ({history}) => {
 
@@ -23,19 +24,21 @@ const Login = ({history}) => {
         }
     };
 
-           return(
-            <div>
-               <form onSubmit={ signIn }>
+           return(   
+               <body class="background">
+            
+               <form class="loginForm" onSubmit={ signIn }>
                    <h1>Sign In</h1>
-                   <label>UserName</label>
-                   <input type="text" name="username" onChange={e => setUsername(e.target.value)}/>
-                   <label>Password</label>
-                   <input type="text" name="password" onChange={e => setPassword(e.target.value)}/>
-                   <button>Sign In</button>
+                   <label class="formLabels">UserName</label><br/>
+                   <input type="text" name="username" onChange={e => setUsername(e.target.value)} class="formInputs"/><br/><br/>
+                   <label  class="formLabels">Password</label><br/>
+                   <input type="text" name="password" onChange={e => setPassword(e.target.value)} class="formInputs"/><br/><br/>
+                   <button class="formButton">Sign In</button>
                </form>
            
                     
-            </div>
+           
+            </body>
         );
       
        
