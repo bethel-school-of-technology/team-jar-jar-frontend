@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
-const user = require('../models/user');
+const { User } = require('../models');
 const secretKey = 'whydoineedasecretkey'
+
 module.exports ={
     createJWT: (user) => {
     const token = jwt.sign({
@@ -16,7 +17,7 @@ module.exports ={
         verifyUser: (token) => {
             try {
                 const decodedPayload = jwt.verify(token, secretKey);
-                return user.findByPk(decodedPayload.id);
+                return User.findByPk(decodedPayload.id);
             } catch (err){
                 return ("Your token has expired");
             }

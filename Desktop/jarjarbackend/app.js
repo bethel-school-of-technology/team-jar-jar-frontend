@@ -18,21 +18,24 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 models.sequelize.sync({ alter:true }).then(function () {
-    console.log("Mesa sync'd up wit da DADABAAAASE")
+    console.log("Mesa DB Sync'd up")
 });
 
 
 app.use(async (req, res, next) => {
     const header = req.headers.authorization;
+    
     if (!header){
         return next();
     }
+
     const token = header.split(' ')[1];
 
     const user = await auth.verifyUser(token);
     req.user = user;
     next();
 });
+
 app.use('/users', usersRouter);
 app.use('/sabers', sabersRouter);
 

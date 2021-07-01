@@ -5,7 +5,7 @@ var bcrypt = require('bcrypt');
 var auth = require('../services/auth');
 
 router.post('/', async (req, res, next) => {
-  if (!req.bodyy.username || !req.body.password) {
+  if (!req.body.email || !req.body.password) {
     res.status(400).send('Username and paw required');
     return;
   }
@@ -28,6 +28,7 @@ const hashedPassword = await bcrypt.hash(req.body.password, salt);
     res.status(400).send();
   });
 });
+// POST LOGIN
 
 router.post('/login', async (req, res, next) => {
   User.findOne({
