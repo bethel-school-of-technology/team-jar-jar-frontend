@@ -16,7 +16,7 @@ const Login = ({history}) => {
                 email: email,
                 password: password
             };
-            axios.post('http://localhost:3000/login', req).then(result => {
+            axios.post('http://localhost:3000/Login', req).then(result => {
                 const token = result.data.jwt;
                 localStorage.setItem('myJWT', token);
                 history.push('/');
@@ -25,15 +25,15 @@ const Login = ({history}) => {
     };
 
            return(   
-               <body class="background">
+               <body className="background">
             
-               <form class="loginForm" onSubmit={ signIn }>
+               <form className="loginForm" onSubmit={ signIn }>
                    <h1>Sign In</h1>
-                   <label class="formLabels">Email</label><br/>
-                   <input type="text" name="email" onChange={e => setEmail(e.target.value)} class="formInputs"/><br/><br/>
-                   <label  class="formLabels">Password</label><br/>
-                   <input type="text" name="password" onChange={e => setPassword(e.target.value)} class="formInputs"/><br/><br/>
-                   <button class="formButton">Sign In</button>
+                   <label className="formLabels">Email</label><br/>
+                   <input type="email" name="email" onChange={e => setEmail(e.target.value)} className="formInputs"/><br/><br/>
+                   <label  className="formLabels">Password</label><br/>
+                   <input type="password" name="password" onChange={e => setPassword(e.target.value)} className="formInputs"/><br/><br/>
+                   <button className="formButton">Sign In</button>
                </form>
            
                     
