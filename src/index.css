@@ -8,6 +8,12 @@ body {
   background-color: black;
 }
 
+#backgroundVid {
+position:fixed;
+z-index: -1;
+width: 100%;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

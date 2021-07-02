@@ -3,9 +3,22 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import lightspeedstockvid from '../src/animations/lightspeedstockvid.mp4';
+
+class Index extends React.Component {
+  render(){
+    return(
+      <video autoPlay loop  id="backgroundVid">
+    <source src={lightspeedstockvid} type="video/mp4"></source>
+  </video>
+    );
+  }
+}
+
 
 ReactDOM.render(
   <React.StrictMode>
+    <Index />
     <App />
   </React.StrictMode>,
   document.getElementById('root')
