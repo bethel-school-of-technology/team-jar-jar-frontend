@@ -10,6 +10,9 @@ import Saber from './components/Saber.js';
 // import './components/ScreenCapture';
 // import ScreenCaptureComponent from './components/ScreenCapture'; 
 import PrivateRoute from './components/PrivateRoute';
+import '../src/App.css';
+import { Navbar } from 'react-bootstrap';
+// import 'bootstrap/dist/css/bootstrap.min.css'  ***might use???
 
 // Sean had import statements for screenshotcapture on this page ; in process of switching screencapture libraries
 // the rest is joeys
@@ -19,8 +22,13 @@ function App() {
     <div className="App">
       <Router>
       <div>
-      <Link to="/Login">Login</Link>
-      <Link to="/Saber">Saber</Link>
+
+        {/* figure out navbar react bootstrap */}
+
+    <Navbar bg="dark" variant="dark" >
+        <Link to="/Login">Login</Link>
+        <Link to="/Saber">Saber</Link>
+    </Navbar>
 
 
       </div>

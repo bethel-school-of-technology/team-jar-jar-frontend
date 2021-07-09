@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+.navstyle{
+  text-align: center;
+  background-color: clear;
+  font-family: 'Pathway Gothic One', sans-serif;
+    font-size: 200%;
+  -webkit-text-stroke: 2px #feda4a;
+  /* list-style-type: none; */
+	margin: 0;
+	/* padding: 30px; */
+	text-align: center;
+	margin-top: 20px;
+  /* display: inline; */
+}
+
+a {
+  text-decoration: none;
+}
