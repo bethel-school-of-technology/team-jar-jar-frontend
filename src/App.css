@@ -1,54 +1,34 @@
-.App {
+body {
+  background-image: url("./animations/starwars.jpg");  
+  background-size: 100%;
+
+}
+
+.navbar{
+  margin-top: 35px;
+  background-color: transparent;
   text-align: center;
+  font-size: larger;
+  font-weight: 900;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.navstyle{
-  text-align: center;
-  background-color: clear;
+.navlink{
+  padding: 7px;
+  -webkit-text-stroke: 3px #feda4a;
+  color:black;
+  font-size: 300%;
   font-family: 'Pathway Gothic One', sans-serif;
-    font-size: 200%;
-  -webkit-text-stroke: 2px #feda4a;
-  /* list-style-type: none; */
-	margin: 0;
-	/* padding: 30px; */
-	text-align: center;
-	margin-top: 20px;
-  /* display: inline; */
+
+}
+
+#loginlink {
+  transform: translateX(60deg)  translateY(80deg);
+
+}
+
+.navlink:hover {
+  opacity: 70%;
 }
 
 a {

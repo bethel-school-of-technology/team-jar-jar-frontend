@@ -1,11 +1,11 @@
 .loginForm {
-    background-color: clear;
+    background-color: transparent;
     color: black;
     font-family: 'Pathway Gothic One', sans-serif;
     font-size: 200%;
     text-align: center;
     margin: 0 auto;
-    margin-top:225px;
+    margin-top:150px;
     width:500px;
     padding: 1em;
     border: 5px solid #feda4a;
