@@ -99,7 +99,8 @@ const Carousel1 = () => {
           </Carousel.Item>
 
           <Carousel.Item>
-            <img className="d-block w-100 justify-content-md-center"
+            <img className="d-block justify-content-md-center"
+              style={{ height: '18rem' }}
               src={require('./images/L9.png')}
               alt="Ninth Design"
             />

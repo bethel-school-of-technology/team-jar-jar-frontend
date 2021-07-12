@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
 import { Card, Button, Alert, Container } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContext"
 import { useHistory } from "react-router-dom";
@@ -6,12 +6,15 @@ import Carousel2 from './Carousel2'
 import Carousel1 from './Carousel1'
 import '../components/Create.css';
 import './images/L1.png';
+import * as html2canvas from 'html2canvas';
+
 
 export default function Create() {
   const [error, setError] = useState("")
   const { logout } = useAuth()
   const history = useHistory()
   const [loading] = useState(false)
+  const captureRef = useRef()
 
 
   async function handleLogout() {
@@ -24,7 +27,11 @@ export default function Create() {
       setError("Failed to log out")
     }
   }
-
+  function takeShot() { 
+    html2canvas(document.querySelector("#capture")).then(canvas => {
+     document.querySelector("#output").appendChild(canvas)
+ });
+}
 
   function ControlledCarousel() {
     const [index, setIndex] = useState(0);
@@ -32,11 +39,7 @@ export default function Create() {
     const handleSelect = (selectedIndex, e) => {
       setIndex(selectedIndex);
     };
-    //     function takeShot() { 
-    //       html2canvas(document.querySelector("#capture")).then(canvas => {
-    //        document.querySelector("#output").appendChild(canvas)
-    //    });
-    // }
+   
 
     return (
       
@@ -90,7 +93,7 @@ export default function Create() {
 
 
           {/* ----screenshot button save to server---- */}
-          <Button className="w-100" type="submit">
+          <Button className="w-100" onClick={takeShot()} type="submit">
             SAVE
             </Button>
 
