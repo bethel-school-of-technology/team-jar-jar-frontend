@@ -8,15 +8,33 @@ import Login from "./Login"
 import PrivateRoute from "./PrivateRoute"
 import ForgotPassword from "./ForgotPassword"
 import UpdateProfile from "./UpdateProfile"
-import Create from "./Create";
+import Create from "./Create"
+import './backgroundlightspeed.jpeg';
+import Jumbotron from 'react-bootstrap/Jumbotron'
+
 
 function App() {
   return (
+    <>
+    {/* <Navbar fixed="top" bg="dark">
+    <Navbar.Brand href="/login">
+      <img
+        src="/backgroundlightspeed.jpeg"
+        width="40"
+        height="30"
+        className="d-inline-block align-top"
+        alt="navlogo"
+      />
+    </Navbar.Brand>
+  </Navbar> */}
+    <Jumbotron fluid>
     <Container
       className="d-flex align-items-center justify-content-center"
       style={{ minHeight: "100vh" }}
     >
+      
       <div className="w-100" style={{ maxWidth: "400px" }}>
+
         <Router>
           <AuthProvider>
             <Switch>
@@ -31,7 +49,9 @@ function App() {
         </Router>
       </div>
     </Container>
+    </Jumbotron>
+  </>
   )
 }
-
+// tailwind webpack react typescript linting tools prettier docker github actions
 export default App

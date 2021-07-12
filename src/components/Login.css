@@ -1,0 +1,7 @@
+.container{
+    background-image: url(./backgroundlightspeed.jpeg);
+    display: grid;
+    place-items: center;
+  }
+
+  
