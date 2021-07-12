@@ -5,12 +5,17 @@ import html2canvas from 'html2canvas';
 
 function Saber() {
 
-    html2canvas(document.querySelector("#capture")).then(canvas => {
-        document.body.appendChild(canvas)
+   const takeShot = () => { 
+
+       html2canvas(document.querySelectorAll(".capture")).then(canvas => {
+        document.querySelectorAll(".output").appendChild(canvas)
+
+
     });
+}
    
     return(
-<div id="capture">
+<div className="capture">
     <h4>
         <label for="green">Green</label>
             <input type="radio" id="green" name="color" checked />
@@ -32,7 +37,10 @@ function Saber() {
             </div>
 
     </h4>
-</div>
+</div>,
+    <button onClick={takeShot()}>Save Saber</button>,
+    <div className="output">Screenshot:</div>
+
 
     );
 

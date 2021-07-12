@@ -33,7 +33,8 @@ function App() {
       <Route path="/Login">
             <Login />
           </Route>
-         <PrivateRoute path="/Saber" component={Saber}/>
+          <Saber/>
+         {/* <PrivateRoute path="/Saber" component={Saber}/> */}
       </Switch>
     </Router> 
    
